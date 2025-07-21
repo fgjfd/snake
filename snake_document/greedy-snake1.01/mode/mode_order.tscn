@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://o8efwv1m7f1y"]
+
+[ext_resource type="Script" uid="uid://dttkrtlilrhv0" path="res://mode/mode_order.gd" id="1_wtcfe"]
+
+[node name="mode_order" type="Node2D"]
+script = ExtResource("1_wtcfe")

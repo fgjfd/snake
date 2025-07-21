@@ -1,0 +1,131 @@
+[gd_scene load_steps=7 format=3 uid="uid://hhkhwqds2hgs"]
+
+[ext_resource type="Theme" uid="uid://2wcxc6dy1vpq" path="res://theme/new_theme.tres" id="1_oottt"]
+[ext_resource type="Texture2D" uid="uid://brkqmw8y4pw0m" path="res://sets/ui/exit.png" id="2_5d0aq"]
+[ext_resource type="Script" uid="uid://fr2q7x30rmww" path="res://UI/volumeslider/volumeslider.gd" id="2_6b52w"]
+[ext_resource type="Script" uid="uid://cxtymmxuipunk" path="res://UI/volumeslider/sfxvolumeslider.gd" id="3_nik04"]
+[ext_resource type="Script" uid="uid://bbdnm5s3d2t2v" path="res://UI/volumeslider/all_volumeslider.gd" id="4_4p6e5"]
+[ext_resource type="Script" uid="uid://466sr0dcsjba" path="res://UI/volumeslider/bgmvolumeslider.gd" id="4_5d0aq"]
+
+[node name="volumeslider" type="CanvasLayer"]
+script = ExtResource("2_6b52w")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 720.0
+offset_bottom = 400.0
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="exit" type="TextureButton" parent="HBoxContainer/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+texture_normal = ExtResource("2_5d0aq")
+texture_pressed = ExtResource("2_5d0aq")
+texture_hover = ExtResource("2_5d0aq")
+stretch_mode = 0
+
+[node name="Control" type="Control" parent="HBoxContainer/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+
+[node name="Control3" type="Control" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="master" type="Label" parent="HBoxContainer/VBoxContainer/Control3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="mastervolumeslider" type="HSlider" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.2
+theme = ExtResource("1_oottt")
+max_value = 1.0
+step = 0.01
+script = ExtResource("4_4p6e5")
+
+[node name="Control2" type="Control" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="SFX" type="Label" parent="HBoxContainer/VBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sfxvolumeslider" type="HSlider" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.2
+theme = ExtResource("1_oottt")
+max_value = 1.0
+step = 0.01
+script = ExtResource("3_nik04")
+
+[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="BACKGROUND" type="Label" parent="HBoxContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="bgmvolumeslider" type="HSlider" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.2
+theme = ExtResource("1_oottt")
+max_value = 1.0
+step = 0.01
+script = ExtResource("4_5d0aq")
+
+[node name="Control2" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[connection signal="pressed" from="HBoxContainer/Control/VBoxContainer/exit" to="." method="_on_exit_pressed"]

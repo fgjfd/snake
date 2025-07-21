@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://djuujh8jnd118"]
+
+[ext_resource type="Texture2D" uid="uid://cr1js65bpfbjr" path="res://sets/texture/snake head.png" id="1_4c2mh"]
+[ext_resource type="Script" uid="uid://stjr04aqk6mg" path="res://snake/snake_head/snake_head.gd" id="1_v3tg4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qao57"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a0oen"]
+size = Vector2(10, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3tg4"]
+size = Vector2(10, 10)
+
+[node name="snake_head" type="CharacterBody2D"]
+z_index = 1
+script = ExtResource("1_v3tg4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4c2mh")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+top_level = true
+position = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_qao57")
+
+[node name="collide" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collide"]
+position = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_a0oen")
+debug_color = Color(0.910274, 0.23183, 0.476464, 0.42)
+
+[node name="receiver" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="receiver"]
+position = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_v3tg4")

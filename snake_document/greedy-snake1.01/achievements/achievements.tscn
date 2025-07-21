@@ -1,0 +1,490 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfshyd172wt6l"]
+
+[ext_resource type="Theme" uid="uid://2wcxc6dy1vpq" path="res://theme/new_theme.tres" id="1_e00ml"]
+[ext_resource type="Texture2D" uid="uid://cjd5kq7ds7fk8" path="res://sets/texture/achievement.png" id="1_nr1wc"]
+[ext_resource type="Script" uid="uid://jw5rwsawsayr" path="res://achievements/achievements.gd" id="1_qyhgc"]
+[ext_resource type="Texture2D" uid="uid://brkqmw8y4pw0m" path="res://sets/ui/exit.png" id="3_qyhgc"]
+
+[node name="achievements" type="CanvasLayer"]
+script = ExtResource("1_qyhgc")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_e00ml")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.07
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="exit" type="TextureButton" parent="Control/HBoxContainer/Control/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_qyhgc")
+texture_pressed = ExtResource("3_qyhgc")
+texture_hover = ExtResource("3_qyhgc")
+stretch_mode = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control"]
+self_modulate = Color(1, 1, 0.0941176, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "成就-经典模式"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/HBoxContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_nr1wc")
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 15
+text = "得分不超过30"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 15
+text = "“noob”"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Control3" type="Control" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 15
+text = "未完成"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+mouse_filter = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_nr1wc")
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(80, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 15
+text = "得分超过250"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 15
+text = "“比250强”"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Control3" type="Control" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 15
+text = "未完成"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+mouse_filter = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_nr1wc")
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(80, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 15
+text = "得分超过500"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 15
+text = "“有点东西”"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Control3" type="Control" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 15
+text = "未完成"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+mouse_filter = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer4"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer4/HBoxContainer"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_nr1wc")
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer4/HBoxContainer"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer4/HBoxContainer"]
+custom_minimum_size = Vector2(80, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 15
+text = "得分超过1000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer4/HBoxContainer"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer4/HBoxContainer"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 15
+text = "“开了”"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Control3" type="Control" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer4/HBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer4/HBoxContainer"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 15
+text = "未完成"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer4"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+mouse_filter = 1
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer5"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer5/HBoxContainer"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_nr1wc")
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer5/HBoxContainer"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer5/HBoxContainer"]
+custom_minimum_size = Vector2(80, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 15
+text = "得分超过2000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer5/HBoxContainer"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer5/HBoxContainer"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 15
+text = "“别改文件”"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Control3" type="Control" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer5/HBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer5/HBoxContainer"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 15
+text = "未完成"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/VBoxContainer5"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+mouse_filter = 1
+
+[node name="Control2" type="Control" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Control2" type="Control" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/Control2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="max_grade" type="Label" parent="Control/HBoxContainer/Control2/VBoxContainer"]
+self_modulate = Color(1, 0.454902, 1, 1)
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 6
+mouse_filter = 1
+theme_override_font_sizes/font_size = 15
+text = "历史最高分为"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Control2" type="Control" parent="Control/HBoxContainer/Control2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="game_play_count" type="Label" parent="Control/HBoxContainer/Control2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0.780392, 0.862745, 1)
+theme_override_font_sizes/font_size = 15
+text = "总游玩次数"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Control3" type="Control" parent="Control/HBoxContainer/Control2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[connection signal="pressed" from="Control/HBoxContainer/Control/VBoxContainer/exit" to="." method="_on_exit_pressed"]

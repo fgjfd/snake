@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://34j3ybmdx6go"]
+
+[ext_resource type="Script" uid="uid://ba7t8wmws3wp0" path="res://snake_manager/snake_manager.gd" id="1_wi0oi"]
+
+[node name="snake_manager" type="Node2D"]
+script = ExtResource("1_wi0oi")

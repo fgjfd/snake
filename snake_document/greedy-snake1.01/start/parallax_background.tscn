@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://derglb8g3l3aw"]
+
+[ext_resource type="Script" uid="uid://b30cvog86qdo8" path="res://start/parallax_background.gd" id="1_t3alv"]
+[ext_resource type="Texture2D" uid="uid://r7n0ppd1ywmr" path="res://sets/texture/bacground2.png" id="2_av6lj"]
+[ext_resource type="Texture2D" uid="uid://121g11s7xsh1" path="res://sets/ui/moon.png" id="2_o0b4y"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+script = ExtResource("1_t3alv")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(1000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+self_modulate = Color(1, 1, 1, 0.67451)
+position = Vector2(0, 4)
+scale = Vector2(5, 5)
+texture = ExtResource("2_o0b4y")
+centered = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.8, 1)
+motion_mirroring = Vector2(600, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+self_modulate = Color(1, 1, 1, 0.623529)
+scale = Vector2(10, 10)
+texture = ExtResource("2_av6lj")
+centered = false

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://phn0r4psbtkh"]
+
+[ext_resource type="Script" uid="uid://cqfn4h2xadvs" path="res://record/record.gd" id="1_3mvkp"]
+
+[node name="record" type="Node2D"]
+script = ExtResource("1_3mvkp")

@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://6cnlbtrk8lq6"]
+
+[ext_resource type="Texture2D" uid="uid://obihypueyx0d" path="res://sets/ui/map.png" id="1_p8qmt"]
+[ext_resource type="PackedScene" uid="uid://34j3ybmdx6go" path="res://snake_manager/snake_manager.tscn" id="3_r0sni"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0sni"]
+size = Vector2(20, 400)
+
+[node name="TextureRect" type="TextureRect"]
+offset_right = 400.0
+offset_bottom = 400.0
+texture = ExtResource("1_p8qmt")
+
+[node name="edge" type="Area2D" parent="."]
+
+[node name="left" type="CollisionShape2D" parent="edge"]
+position = Vector2(10, 200)
+shape = SubResource("RectangleShape2D_r0sni")
+
+[node name="up" type="CollisionShape2D" parent="edge"]
+position = Vector2(200, 10)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_r0sni")
+
+[node name="down" type="CollisionShape2D" parent="edge"]
+position = Vector2(200, 390)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_r0sni")
+
+[node name="right" type="CollisionShape2D" parent="edge"]
+position = Vector2(390, 200)
+shape = SubResource("RectangleShape2D_r0sni")
+
+[node name="snake_manager" parent="." instance=ExtResource("3_r0sni")]
+visible = true

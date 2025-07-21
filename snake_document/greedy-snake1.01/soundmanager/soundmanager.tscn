@@ -1,0 +1,73 @@
+[gd_scene load_steps=12 format=3 uid="uid://bdeyivplyorhi"]
+
+[ext_resource type="Script" uid="uid://dt2nol2twhq72" path="res://soundmanager/soundmanager.gd" id="1_7croc"]
+[ext_resource type="AudioStream" uid="uid://wk1y0oiu50tb" path="res://sets/sound/music/sounds/SFX_UI_Confirm.wav" id="2_kdpus"]
+[ext_resource type="AudioStream" uid="uid://5d60kkfluf88" path="res://sets/sound/music/sounds/SFX_UI_Cancel.wav" id="3_evmvk"]
+[ext_resource type="AudioStream" uid="uid://pdu4g5eyeaj3" path="res://sets/sound/music/sounds/SFX_UI_Pause.wav" id="4_s8eo6"]
+[ext_resource type="AudioStream" uid="uid://santofr3yy2k" path="res://sets/sound/music/sounds/SFX_UI_Resume.wav" id="5_1u3b7"]
+[ext_resource type="AudioStream" uid="uid://s12d82u2g7ab" path="res://sets/sound/music/sounds/SFX_UI_OpenMenu.wav" id="6_h6sv7"]
+[ext_resource type="AudioStream" uid="uid://dc05qe3necim8" path="res://sets/sound/music/sounds/SFX_UI_Saved.wav" id="7_ya8cq"]
+[ext_resource type="AudioStream" uid="uid://cdkt8hjml4uwh" path="res://sets/sound/music/sounds/SFX_UI_Unequip.wav" id="8_401tu"]
+[ext_resource type="AudioStream" uid="uid://c0wderdvdqbuv" path="res://sets/sound/music/backgroundmusic/time_for_adventure.mp3" id="9_401tu"]
+[ext_resource type="AudioStream" uid="uid://fd7oom2fr656" path="res://sets/sound/music/sounds/GameOver.wav" id="9_h6sv7"]
+[ext_resource type="AudioStream" uid="uid://o5kxijsammxw" path="res://sets/sound/music/backgroundmusic/Pixel 2.ogg" id="11_401tu"]
+
+[node name="SoundManager" type="Node"]
+script = ExtResource("1_7croc")
+
+[node name="ui" type="Node" parent="."]
+process_mode = 3
+
+[node name="confirm" type="AudioStreamPlayer" parent="ui"]
+process_mode = 3
+stream = ExtResource("2_kdpus")
+bus = &"SFX"
+
+[node name="cancel" type="AudioStreamPlayer" parent="ui"]
+stream = ExtResource("3_evmvk")
+bus = &"SFX"
+
+[node name="pause" type="AudioStreamPlayer" parent="ui"]
+stream = ExtResource("4_s8eo6")
+bus = &"SFX"
+
+[node name="resume" type="AudioStreamPlayer" parent="ui"]
+stream = ExtResource("5_1u3b7")
+bus = &"SFX"
+
+[node name="openmenu" type="AudioStreamPlayer" parent="ui"]
+stream = ExtResource("6_h6sv7")
+bus = &"SFX"
+
+[node name="saved" type="AudioStreamPlayer" parent="ui"]
+stream = ExtResource("7_ya8cq")
+bus = &"SFX"
+
+[node name="eat" type="AudioStreamPlayer" parent="ui"]
+stream = ExtResource("8_401tu")
+bus = &"SFX"
+
+[node name="background" type="Node" parent="."]
+
+[node name="idle" type="AudioStreamPlayer" parent="background"]
+stream = ExtResource("9_401tu")
+bus = &"BGM"
+parameters/looping = false
+
+[node name="menu" type="AudioStreamPlayer" parent="background"]
+
+[node name="gameover" type="AudioStreamPlayer" parent="background"]
+process_mode = 3
+stream = ExtResource("9_h6sv7")
+bus = &"BGM"
+
+[node name="gaming" type="AudioStreamPlayer" parent="background"]
+stream = ExtResource("11_401tu")
+bus = &"BGM"
+parameters/looping = false
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="background"]
+bus = &"BGM"
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="background"]
+bus = &"BGM"

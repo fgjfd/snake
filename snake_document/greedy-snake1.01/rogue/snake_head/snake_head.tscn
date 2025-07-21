@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://j06m7e720x64"]
+
+[ext_resource type="PackedScene" uid="uid://djuujh8jnd118" path="res://snake/snake_head/snake_head.tscn" id="1_waxpb"]
+[ext_resource type="Script" uid="uid://dcangtwm362us" path="res://rogue/snake_head/snake_head.gd" id="2_ydqmm"]
+
+[node name="snake_head" instance=ExtResource("1_waxpb")]
+script = ExtResource("2_ydqmm")
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = false
+
+[node name="collide" parent="." index="2"]
+visible = false
+
+[node name="CollisionShape2D" parent="collide" index="0"]
+visible = false
+
+[node name="receiver" parent="." index="3"]
+visible = false
+
+[node name="CollisionShape2D" parent="receiver" index="0"]
+visible = false

@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://wca44mgeevpo"]
+
+[ext_resource type="Script" uid="uid://dk8nx46w4iw3" path="res://sceneloader/sceneloader.gd" id="1_0nb4c"]
+[ext_resource type="Texture2D" uid="uid://tsrpkpuvrmv5" path="res://sets/texture/background1.png" id="2_b2k3w"]
+[ext_resource type="Texture2D" uid="uid://bebreqvnxa4et" path="res://sets/texture/snake.png" id="2_eq3mv"]
+
+[sub_resource type="Animation" id="Animation_b2k3w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../background:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_eq3mv"]
+resource_name = "pass"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../background:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 0.584314, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h2ard"]
+_data = {
+&"RESET": SubResource("Animation_b2k3w"),
+&"pass": SubResource("Animation_eq3mv")
+}
+
+[node name="sceneloader" type="Node2D"]
+script = ExtResource("1_0nb4c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../snake")
+libraries = {
+&"": SubResource("AnimationLibrary_h2ard")
+}
+
+[node name="background" type="Sprite2D" parent="."]
+scale = Vector2(12, 10)
+texture = ExtResource("2_b2k3w")
+centered = false
+
+[node name="snake" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0, 1, 1)
+scale = Vector2(1.2, 1)
+texture = ExtResource("2_eq3mv")
+centered = false

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb6e6omjqejro"]
+
+[ext_resource type="Script" uid="uid://dkq7f2p606i8m" path="res://save/save.gd" id="1_is7pf"]
+
+[node name="save" type="CanvasLayer"]
+script = ExtResource("1_is7pf")

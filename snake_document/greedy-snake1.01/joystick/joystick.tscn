@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv1whi58gv70w"]
+
+[ext_resource type="Texture2D" uid="uid://d0wqrjf3rixax" path="res://sets/texture/snake_body.png" id="1_8gxd0"]
+[ext_resource type="Script" uid="uid://c05i3fijsadbd" path="res://joystick/joystick.gd" id="2_uo47b"]
+
+[node name="TouchScreenButton" type="TouchScreenButton"]
+modulate = Color(1, 1, 1, 0.454902)
+scale = Vector2(3.095, 3.095)
+texture_normal = ExtResource("1_8gxd0")
+texture_pressed = ExtResource("1_8gxd0")
+script = ExtResource("2_uo47b")

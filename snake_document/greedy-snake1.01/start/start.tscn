@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://l50i8aoevjb3"]
+
+[ext_resource type="Script" uid="uid://h03gxnct1ahw" path="res://start/start.gd" id="1_qs8yo"]
+[ext_resource type="PackedScene" uid="uid://derglb8g3l3aw" path="res://start/parallax_background.tscn" id="2_nvu75"]
+
+[node name="start" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_qs8yo")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_nvu75")]
+
+[node name="Control" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 720.0
+offset_bottom = 400.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control2" type="Control" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control2" type="Control" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Panel" type="Panel" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="start" type="Button" parent="Control/VBoxContainer/HBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "start"
+
+[node name="exit" type="Button" parent="Control/VBoxContainer/HBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "exit"
+
+[node name="Control" type="Control" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Control" type="Control" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[connection signal="pressed" from="Control/VBoxContainer/HBoxContainer/Panel/HBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/HBoxContainer/Panel/HBoxContainer/exit" to="." method="_on_exit_pressed"]

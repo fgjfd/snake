@@ -1,0 +1,297 @@
+[gd_scene load_steps=9 format=3 uid="uid://b15656chi48al"]
+
+[ext_resource type="Script" uid="uid://cf5fcuwssy4in" path="res://test/test.gd" id="1_k7hrd"]
+[ext_resource type="PackedScene" uid="uid://6cnlbtrk8lq6" path="res://background/background.tscn" id="1_kreup"]
+[ext_resource type="Texture2D" uid="uid://c8jeh2n8vusvq" path="res://sets/ui/paused.png" id="3_k7hrd"]
+[ext_resource type="Texture2D" uid="uid://dle7jr6enn00t" path="res://sets/texture/game_over.png" id="5_tbfq4"]
+[ext_resource type="Texture2D" uid="uid://uo4tc3ws8g2a" path="res://sets/ui/restart.png" id="6_aeque"]
+[ext_resource type="Texture2D" uid="uid://ddktqpqce8e1j" path="res://sets/ui/home.png" id="7_f6u32"]
+[ext_resource type="Texture2D" uid="uid://brkqmw8y4pw0m" path="res://sets/ui/exit.png" id="8_5jhup"]
+[ext_resource type="PackedScene" uid="uid://bv1whi58gv70w" path="res://joystick/joystick.tscn" id="9_f6u32"]
+
+[node name="test" type="Node2D"]
+script = ExtResource("1_k7hrd")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 720.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" parent="Control" instance=ExtResource("1_kreup")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="snake_manager" parent="Control/background" index="1"]
+z_index = 1
+snake_init_length = 3
+const_move_interval = 0.2
+min_move_interval = 0.15
+init_pos = Vector2(10, 10)
+speed_rate = 0.001
+
+[node name="ui" type="Node2D" parent="."]
+
+[node name="stop_menu" type="CanvasLayer" parent="ui"]
+process_mode = 3
+
+[node name="Control" type="Control" parent="ui/stop_menu"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ui/stop_menu/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="ui/stop_menu/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ui/stop_menu/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="Control" type="Control" parent="ui/stop_menu/Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Panel" type="Panel" parent="ui/stop_menu/Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ui/stop_menu/Control/HBoxContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="resume" type="Button" parent="ui/stop_menu/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "继续"
+
+[node name="back_to_scene" type="Button" parent="ui/stop_menu/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "回到主菜单"
+autowrap_mode = 2
+
+[node name="exit" type="Button" parent="ui/stop_menu/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "退出游戏"
+
+[node name="Control2" type="Control" parent="ui/stop_menu/Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Control3" type="Control" parent="ui/stop_menu/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="begin_and_die_menu" type="CanvasLayer" parent="ui"]
+process_mode = 3
+
+[node name="Control" type="Control" parent="ui/begin_and_die_menu"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="playgame" type="Button" parent="ui/begin_and_die_menu/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.4
+anchor_right = 0.6
+anchor_bottom = 0.6
+offset_left = -44.0
+offset_top = -4.0
+offset_right = 44.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "开始游戏"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ui/begin_and_die_menu/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="ui/begin_and_die_menu/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ui/begin_and_die_menu/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="Control" type="Control" parent="ui/begin_and_die_menu/Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Panel" type="Panel" parent="ui/begin_and_die_menu/Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ui/begin_and_die_menu/Control/HBoxContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="gameover" type="TextureRect" parent="ui/begin_and_die_menu/Control/HBoxContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+texture = ExtResource("5_tbfq4")
+
+[node name="point" type="Label" parent="ui/begin_and_die_menu/Control/HBoxContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+theme_override_font_sizes/font_size = 25
+text = "最终得分为："
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ui/begin_and_die_menu/Control/HBoxContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="restart" type="TextureButton" parent="ui/begin_and_die_menu/Control/HBoxContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("6_aeque")
+texture_pressed = ExtResource("6_aeque")
+texture_hover = ExtResource("6_aeque")
+stretch_mode = 0
+
+[node name="back_to_menu" type="TextureButton" parent="ui/begin_and_die_menu/Control/HBoxContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("7_f6u32")
+texture_pressed = ExtResource("7_f6u32")
+texture_hover = ExtResource("7_f6u32")
+stretch_mode = 0
+
+[node name="exit" type="TextureButton" parent="ui/begin_and_die_menu/Control/HBoxContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("8_5jhup")
+texture_pressed = ExtResource("8_5jhup")
+texture_hover = ExtResource("8_5jhup")
+stretch_mode = 0
+
+[node name="Control2" type="Control" parent="ui/begin_and_die_menu/Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Control3" type="Control" parent="ui/begin_and_die_menu/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="player_touch" type="CanvasLayer" parent="ui"]
+process_mode = 3
+
+[node name="Control" type="Control" parent="ui/player_touch"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ui/player_touch/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ui/player_touch/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Control" type="Control" parent="ui/player_touch/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="paused" type="TextureButton" parent="ui/player_touch/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+texture_normal = ExtResource("3_k7hrd")
+stretch_mode = 0
+
+[node name="Control" type="Control" parent="ui/player_touch/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="Control2" type="Control" parent="ui/player_touch/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="TouchScreenButton" parent="ui/player_touch/Control" instance=ExtResource("9_f6u32")]
+position = Vector2(65, 266)
+
+[connection signal="pressed" from="ui/stop_menu/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="ui/stop_menu/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer/back_to_scene" to="." method="_on_back_to_scene_pressed"]
+[connection signal="pressed" from="ui/stop_menu/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="ui/begin_and_die_menu/Control/playgame" to="." method="_on_playgame_pressed"]
+[connection signal="pressed" from="ui/begin_and_die_menu/Control/HBoxContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="ui/begin_and_die_menu/Control/HBoxContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer/back_to_menu" to="." method="_on_back_to_scene_pressed"]
+[connection signal="pressed" from="ui/begin_and_die_menu/Control/HBoxContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="ui/player_touch/Control/VBoxContainer/HBoxContainer/paused" to="." method="_on_paused_pressed"]
+
+[editable path="Control/background"]

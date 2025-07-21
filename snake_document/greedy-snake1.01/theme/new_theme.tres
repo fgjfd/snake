@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://2wcxc6dy1vpq"]
+
+[ext_resource type="Texture2D" uid="uid://121g11s7xsh1" path="res://sets/ui/moon.png" id="1_f7io8"]
+[ext_resource type="FontFile" uid="uid://c7putp8lp4311" path="res://sets/fonts/fonts/PixelOperator8.ttf" id="2_l8uce"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8uce"]
+atlas = ExtResource("1_f7io8")
+region = Rect2(18, 1, 26, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wqca"]
+atlas = ExtResource("1_f7io8")
+region = Rect2(18, 1, 26, 25)
+
+[resource]
+default_font = ExtResource("2_l8uce")
+default_font_size = 40
+HSlider/icons/grabber = SubResource("AtlasTexture_l8uce")
+HSlider/icons/grabber_highlight = SubResource("AtlasTexture_2wqca")

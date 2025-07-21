@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxqojtneh1yfm"]
+
+[ext_resource type="PackedScene" uid="uid://cgcboajdnh2vk" path="res://snake/snake_body/snake_body.tscn" id="1_gaixa"]
+
+[node name="snake_body" instance=ExtResource("1_gaixa")]
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = false
